@@ -1,0 +1,18 @@
+
+bot:
+  name: "ArenaBreakoutBot"
+  loop_fps: 10
+capture:
+  fps: 30
+  monitor: 1
+model:
+  path: "models/best.pt"
+  device: "cpu"
+control:
+  mouse:
+    human_like: true
+  keyboard:
+    human_like: true
+logging:
+  level: "INFO"
+                    

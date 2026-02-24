@@ -1,0 +1,59 @@
+# Конфигурация бота для Arena Breakout
+
+bot:
+  name: "ArenaBreakoutBot"
+  version: "1.0.0"
+  loop_fps: 10
+
+capture:
+  fps: 30
+  monitor: 1
+  method: "mss"
+
+model:
+  path: "models/best.pt"
+  device: "cpu"
+  confidence_threshold: 0.5
+
+control:
+  mouse:
+    speed: 0.5
+    human_like: true
+    jitter: 5
+    bezier_curve: true
+  keyboard:
+    press_duration: 0.1
+    human_like: true
+
+telegram:
+  enabled: false
+  token: "${TELEGRAM_TOKEN}"
+  chat_id: "${TELEGRAM_CHAT_ID}"
+
+strategies:
+  explore:
+    max_idle_time: 10
+    turn_intensity: 0.3
+  loot:
+    max_distance: 500
+    min_confidence: 0.6
+    classes: ["loot_crate", "weapon_box", "ammo_box", "medkit"]
+  evade:
+    danger_distance: 300
+    hide_time: 5
+
+logging:
+  level: "INFO"
+  file: "logs/bot.log"
+  format: "detailed"
+
+# Специфичные для игры настройки
+game:
+  interact_key: "e"  # Клавиша взаимодействия
+  movement_keys:
+    forward: "w"
+    backward: "s"
+    left: "a"
+    right: "d"
+    run: "shift"
+    crouch: "ctrl"
