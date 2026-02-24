@@ -1,0 +1,10 @@
+opencv-python
+numpy
+mss
+pyautogui
+pynput
+torch
+torchvision
+Pillow
+keyboard
+pytest
